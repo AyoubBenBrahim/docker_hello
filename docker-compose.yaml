@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+ v1:
+  build: 
+   context: ./v1
+   args:
+    BUILD_DATE: 
+  image: hello:v1
+  container_name: hello_v1
+  ports:
+   - "80:80"
+  restart: always
+ v2:
+  build: 
+   context: ./v2
+   args:
+    BUILD_DATE: 
+  image: hello:v2
+  container_name: hello_v2
+  ports:
+   - "80:80"
+  restart: always
+
+# docker-compose build
+# docker save hello:v2 > hello_v2.tar
+# docker load < hello_v2.tar 
+# docker run  -d -p 80:80 hello:v2
